@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">DumbAssets</title>
+    <title id="pageTitle">AFCSC Asset Management</title>
     <script src="config.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="assets/dumbassets.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/afcsc-logo.svg">
     <link rel="manifest" href="manifest.json">
     <script src="js/chart.js"></script>
 </head>
@@ -20,7 +20,7 @@
             </div>
             <div class="header-row">
                 <div id="header-title" class="header-title">
-                    <h1 id="siteTitle">DumbAssets</h1>
+                    <img src="assets/afcsc-logo.svg" alt="AFCSC Logo" class="site-logo"><h1 id="siteTitle">AFCSC Asset Management</h1>
                 </div>
                 <div class="header-actions">
                     <button id="homeBtn" class="header-btn" aria-label="Go to Dashboard">
@@ -146,6 +146,10 @@
                         </div>
                     </div>
                     <form id="assetForm">
+    <div class="form-group">
+        <label for="assetPropertyNumber">Property Number</label>
+        <input type="text" id="assetPropertyNumber" name="propertyNumber">
+    </div>
                         <div class="form-group">
                             <label for="assetName">Name *</label>
                             <input type="text" id="assetName" name="name" required>
@@ -164,7 +168,7 @@
                         </div>
                         <div class="form-group">
                             <label for="assetPurchaseDate">Purchase Date</label>
-                            <input type="date" id="assetPurchaseDate" name="purchaseDate">
+                            <input type="text" id="assetPurchaseDate" name="purchaseDate" placeholder="MM/YY or MM/DD/YYYY">
                         </div>
                         <div class="form-group">
                             <label for="assetPrice">Price</label>
@@ -181,7 +185,7 @@
                         <div class="form-group warranty-expiration-group">
                             <label for="assetWarrantyExpiration">Warranty Expiration</label>
                             <div class="warranty-expiration-inputs">
-                                <input type="date" id="assetWarrantyExpiration" name="warrantyExpiration">
+                                <input type="text" id="assetWarrantyExpiration" name="warrantyExpiration" placeholder="MM/YY or MM/DD/YYYY">
                                 <label class="lifetime-warranty-label">
                                     <input type="checkbox" id="assetWarrantyLifetime" name="warrantyLifetime">
                                     Lifetime
@@ -204,7 +208,7 @@
                                 <div class="form-group warranty-expiration-group">
                                     <label for="assetSecondaryWarrantyExpiration">Secondary Warranty Expiration</label>
                                     <div class="warranty-expiration-inputs">
-                                        <input type="date" id="assetSecondaryWarrantyExpiration" name="secondaryWarrantyExpiration">
+                                        <input type="text" id="assetSecondaryWarrantyExpiration" name="secondaryWarrantyExpiration" placeholder="MM/YY or MM/DD/YYYY">
                                         <label class="lifetime-warranty-label">
                                             <input type="checkbox" id="assetSecondaryWarrantyLifetime" name="secondaryWarrantyLifetime">
                                             Lifetime
@@ -355,7 +359,7 @@
                         
                         <div class="form-group">
                             <label for="subAssetPurchaseDate">Purchase Date</label>
-                            <input type="date" id="subAssetPurchaseDate" name="purchaseDate">
+                            <input type="text" id="subAssetPurchaseDate" name="purchaseDate" placeholder="MM/YY or MM/DD/YYYY">
                         </div>
                         
                         <div class="form-group">
@@ -381,7 +385,7 @@
                         <div class="form-group warranty-expiration-group">
                             <label for="subAssetWarrantyExpiration">Warranty Expiration</label>
                             <div class="warranty-expiration-inputs">
-                                <input type="date" id="subAssetWarrantyExpiration" name="warrantyExpiration">
+                                <input type="text" id="subAssetWarrantyExpiration" name="warrantyExpiration" placeholder="MM/YY or MM/DD/YYYY">
                                 <label class="lifetime-warranty-label">
                                     <input type="checkbox" id="subAssetWarrantyLifetime" name="warrantyLifetime">
                                     Lifetime

@@ -369,6 +369,7 @@ export class ModalManager {
     populateAssetForm(asset) {
         const fields = {
             'assetName': asset.name || '',
+            'assetPropertyNumber': asset.propertyNumber || '',
             'assetModel': asset.modelNumber || '',
             'assetManufacturer': asset.manufacturer || '',
             'assetSerial': asset.serialNumber || '',
@@ -773,6 +774,7 @@ export class ModalManager {
 
         const newAsset = {
             name: document.getElementById('assetName')?.value || '',
+                propertyNumber: document.getElementById('assetPropertyNumber')?.value || '',
             modelNumber: document.getElementById('assetModel')?.value || '',
             manufacturer: document.getElementById('assetManufacturer')?.value || '',
             serialNumber: document.getElementById('assetSerial')?.value || '',

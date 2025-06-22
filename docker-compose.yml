@@ -1,6 +1,6 @@
 services:
   dumbassets:
-    container_name: dumbassets
+    container_name: afcsc_assets
     # image: dumbwareio/dumbassets:latest
     build: .
     restart: unless-stopped
@@ -11,7 +11,7 @@ services:
     environment:
       NODE_ENV: ${DUMBASSETS_NODE_ENV:-production}
       DEBUG: ${DUMBASSETS_DEBUG:-true}
-      SITE_TITLE: ${DUMBASSETS_SITE_TITLE:-DumbAssets}
+      SITE_TITLE: ${DUMBASSETS_SITE_TITLE:-AFCSC Asset Management}
       BASE_URL: ${DUMBASSETS_BASE_URL:-http://localhost:3000}
       DUMBASSETS_PIN: ${DUMBASSETS_PIN:-1234}
       ALLOWED_ORIGINS: ${DUMBASSETS_ALLOWED_ORIGINS:-*}

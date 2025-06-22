@@ -1,10 +1,10 @@
 /**
- * Configuration settings for DumbAssets
+ * Configuration settings for AFCSC Asset Management
  * Contains site settings and constants
  */
 
 // Site title configuration from environment variable or default
-const SITE_TITLE = 'DumbAssets';
+const SITE_TITLE = 'AFCSC Asset Management';
 
 // Debug function
 function debug(message) {

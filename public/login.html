@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">DumbAssets</title>
+    <title id="pageTitle">AFCSC Asset Management</title>
     <script src="config.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="assets/dumbassets.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/afcsc-logo.svg">
 </head>
 <body>
     <main>
         <form id="pinForm">
             <div class="pin-header-row">
-                <h1 id="siteTitle">DumbAssets</h1>
+                <h1 id="siteTitle">AFCSC Asset Management</h1>
                 <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" role="button" type="button">
                     <svg class="moon">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -203,11 +203,11 @@
             if (window.appConfig && window.appConfig.siteTitle) {
                 const siteTitleElem = document.getElementById('siteTitle');
                 if (siteTitleElem) {
-                    siteTitleElem.textContent = window.appConfig.siteTitle || 'DumbAssets';
+                    siteTitleElem.textContent = window.appConfig.siteTitle || 'AFCSC Asset Management';
                 }
                 const pageTitleElem = document.getElementById('pageTitle');
                 if (pageTitleElem) {
-                    pageTitleElem.textContent = window.appConfig.siteTitle || 'DumbAssets';
+                    pageTitleElem.textContent = window.appConfig.siteTitle || 'AFCSC Asset Management';
                 }
             }
         });

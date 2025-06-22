@@ -206,6 +206,31 @@ function setupFileInputPreview(inputId, previewId, isDocument = false, fileType 
                 // Use createPhotoPreview for images with filename and size
                 const photoPreview = createPhotoPreview(e.target.result, deleteHandler, sanitizeFileName(file.name), formatFileSize(file.size));
                 previewItem.appendChild(photoPreview);
+                // Add click-to-enlarge overlay for photo preview
+                const imgEl = photoPreview.querySelector('img');
+                if (imgEl) {
+                    imgEl.style.cursor = 'pointer';
+                    imgEl.addEventListener('click', () => {
+                        const overlay = document.createElement('div');
+                        overlay.style.position = 'fixed';
+                        overlay.style.top = '0';
+                        overlay.style.left = '0';
+                        overlay.style.width = '100%';
+                        overlay.style.height = '100%';
+                        overlay.style.background = 'rgba(0,0,0,0.8)';
+                        overlay.style.display = 'flex';
+                        overlay.style.alignItems = 'center';
+                        overlay.style.justifyContent = 'center';
+                        overlay.style.zIndex = '1000';
+                        const fullImg = document.createElement('img');
+                        fullImg.src = e.target.result;
+                        fullImg.style.maxWidth = '90%';
+                        fullImg.style.maxHeight = '90%';
+                        overlay.appendChild(fullImg);
+                        overlay.addEventListener('click', () => document.body.removeChild(overlay));
+                        document.body.appendChild(overlay);
+                    });
+                }
             };
             reader.readAsDataURL(file);
         }

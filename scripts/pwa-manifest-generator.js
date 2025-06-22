@@ -46,12 +46,12 @@ function generatePWAManifest(siteTitle) {
     theme_color: "#000000",
     icons: [
       {
-        src: `${BASE_PATH}/assets/dumbassets.png`,
+        src: `${BASE_PATH}/assets/afcsc-logo.png`,
         type: "image/png",
         sizes: "192x192"
       },
       {
-        src: `${BASE_PATH}/assets/dumbassets.png`,
+        src: `${BASE_PATH}/assets/afcsc-logo.png`,
         type: "image/png",
         sizes: "512x512"
       }

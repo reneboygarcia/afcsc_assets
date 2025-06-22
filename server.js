@@ -1,5 +1,5 @@
 /**
- * DumbAssets - Asset Tracking Application
+ * AFCSC Assets - Asset Tracking Application
  * Server implementation for handling API requests and file operations
  */
 
@@ -22,7 +22,7 @@ const { startWarrantyCron } = require('./src/services/notifications/warrantyCron
 const { generatePWAManifest } = require("./scripts/pwa-manifest-generator");
 const { originValidationMiddleware, getCorsOptions } = require('./middleware/cors');
 const { demoModeMiddleware } = require('./middleware/demo');
-const { sanitizeFileName } = require('./src/services/fileUpload/utils');
+const { sanitizeFileName } = require('./src/services/fileUpload/serverUtils');
 const packageJson = require('./package.json');
 
 const app = express();
@@ -31,7 +31,7 @@ const DEBUG = process.env.DEBUG === 'TRUE';
 const NODE_ENV = process.env.NODE_ENV || 'production';
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 const DEMO_MODE = process.env.DEMO_MODE === 'true';
-const SITE_TITLE = DEMO_MODE ? `${process.env.SITE_TITLE || 'DumbAssets'} (DEMO)` : (process.env.SITE_TITLE || 'DumbAssets');
+const SITE_TITLE = DEMO_MODE ? `${process.env.SITE_TITLE || 'AFCSC Asset Management'} (DEMO)` : (process.env.SITE_TITLE || 'AFCSC Asset Management');
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const PUBLIC_ASSETS_DIR = path.join(PUBLIC_DIR, 'assets');
 const DATA_DIR = path.join(__dirname, 'data');

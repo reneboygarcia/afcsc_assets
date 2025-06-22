@@ -1,6 +1,6 @@
 // Default to 1.0.0, but will be replaced by the server with the actual version from package.json
 let APP_VERSION = "1.0.0";
-let CACHE_NAME = `DUMBASSETS_CACHE_V${APP_VERSION}`;
+let CACHE_NAME = `AFCSC_ASSET_MGMT_CACHE_V${APP_VERSION}`;
 const ASSETS_TO_CACHE = [];
 const BASE_PATH = self.registration.scope;
 
@@ -28,7 +28,7 @@ console.log(`Service worker initializing with version: ${APP_VERSION}`);
 function updateCacheName(version) {
     if (version && version !== APP_VERSION) {
         APP_VERSION = version;
-        CACHE_NAME = `DUMBASSETS_CACHE_V${APP_VERSION}`;
+        CACHE_NAME = `AFCSC_ASSET_MGMT_CACHE_V${APP_VERSION}`;
         console.log(`Service worker updated to use cache version: ${APP_VERSION}`);
     }
 }
@@ -47,15 +47,15 @@ function getAssetPath(url) {
 async function checkCacheVersion() {
     const keys = await caches.keys();
     
-    // Find any existing DUMBASSETS cache
-    const existingCache = keys.find(key => key.startsWith('DUMBASSETS_') && key.includes('CACHE'));
+    // Find any existing AFCSC Asset Management cache
+    const existingCache = keys.find(key => key.startsWith('AFCSC_ASSET_MGMT_') && key.includes('CACHE'));
     const existingVersion = existingCache ? existingCache.split('V')[1] : null;
     
     // Check if current version cache exists
     const currentCacheExists = keys.includes(CACHE_NAME);
     
     // Check for old versions - use dynamic CACHE_NAME based on APP_VERSION
-    const oldCaches = keys.filter(key => key !== CACHE_NAME && key.startsWith('DUMBASSETS_') && key.includes('CACHE'));
+    const oldCaches = keys.filter(key => key !== CACHE_NAME && key.startsWith('AFCSC_ASSET_MGMT_') && key.includes('CACHE'));
     const hasOldVersions = oldCaches.length > 0;
     
     return {

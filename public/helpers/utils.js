@@ -1,4 +1,4 @@
-// Utility functions for DumbAssets
+// Utility functions for AFCSC Asset Management
 // Place in public/helpers/utils.js
 
 export function generateId() {
@@ -8,6 +8,11 @@ export function generateId() {
 
 export function formatDate(dateString, forSearch = false) {
     if (!dateString && !forSearch) return 'N/A';
+    // Return mm/yy or mm/dd/yyyy strings as-is
+    if (typeof dateString === 'string') {
+        if (/^\d{2}\/\d{2}$/.test(dateString)) return dateString;
+        if (/^\d{2}\/\d{2}\/\d{4}$/.test(dateString)) return dateString;
+    }
     else if (!dateString) return '';
     
     let date;

@@ -106,6 +106,12 @@ form {
 }
 
 /* ELEMENT STYLES */
+.site-logo {
+    max-height: 3rem;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
 h1 {
     font-size: 2rem;
     font-weight: 500;

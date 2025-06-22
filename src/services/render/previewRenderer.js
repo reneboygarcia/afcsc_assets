@@ -11,6 +11,10 @@
  * @return {HTMLElement} The created preview element
  */
 export function createPhotoPreview(filePath, onDeleteCallback, fileName = null, fileSize = null) {
+    // Ensure carousel helper is available
+    if (typeof showPhotoCarousel !== 'function') {
+        console.warn('showPhotoCarousel not found');
+    }
     const previewItem = document.createElement('div');
     previewItem.className = 'file-preview-item';
     
@@ -22,7 +26,7 @@ export function createPhotoPreview(filePath, onDeleteCallback, fileName = null, 
     previewItem.innerHTML = `
         <div class="file-preview">
             <div class="preview-content">
-                <img src="${filePath}" alt="Photo Preview">
+                <img src="${filePath}" alt="Photo Preview" style="cursor: pointer;">
             </div>
         </div>
         <button type="button" class="delete-preview-btn" title="Delete Image">
@@ -37,6 +41,13 @@ export function createPhotoPreview(filePath, onDeleteCallback, fileName = null, 
             <span class="file-name">${fileName}</span>
         </div>
     `;
+    
+    const photoPreview = previewItem.querySelector('img');
+    photoPreview.onclick = () => {
+        const photos = Array.from(previewItem.parentNode.querySelectorAll('.file-preview-item img')).map(img => img.src);
+        const index = photos.indexOf(filePath);
+        showPhotoCarousel(photos, index);
+    };
     
     if (onDeleteCallback) {
         const deleteButton = previewItem.querySelector('.delete-preview-btn');
@@ -132,6 +143,52 @@ export function createDocumentPreview(type, filePath, onDeleteCallback, fileName
  * @param {string} fileName - The name of the file
  * @param {string} fileSize - The size of the file
  */
+/**
+ * Display photo carousel modal
+ * @param {string[]} paths - image URLs
+ * @param {number} startIndex
+ */
+function showPhotoCarousel(paths, startIndex) {
+    let modal = document.getElementById('photoCarouselModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'photoCarouselModal';
+        modal.className = 'photo-carousel-modal';
+        modal.innerHTML = `
+<div class="carousel-content">
+  <span class="carousel-close">&times;</span>
+  <div class="carousel-main">
+    <button class="carousel-prev">&#10094;</button>
+    <img class="carousel-image" src="" alt="">
+    <button class="carousel-next">&#10095;</button>
+  </div>
+  <div class="carousel-thumbnails"></div>
+</div>`;
+        document.body.appendChild(modal);
+        modal.querySelector('.carousel-close').onclick = () => modal.style.display = 'none';
+    }
+    const imgEl = modal.querySelector('.carousel-image');
+    const thumbContainer = modal.querySelector('.carousel-thumbnails');
+    const prevBtn = modal.querySelector('.carousel-prev');
+    const nextBtn = modal.querySelector('.carousel-next');
+    let current = startIndex;
+    function render() {
+        imgEl.src = paths[current];
+        thumbContainer.innerHTML = '';
+        paths.forEach((p, i) => {
+            const t = document.createElement('img');
+            t.src = p;
+            t.className = 'carousel-thumb' + (i===current ? ' active' : '');
+            t.onclick = () => { current = i; render(); };
+            thumbContainer.appendChild(t);
+        });
+    }
+    prevBtn.onclick = () => { current = (current - 1 + paths.length) % paths.length; render(); };
+    nextBtn.onclick = () => { current = (current + 1) % paths.length; render(); };
+    render();
+    modal.style.display = 'block';
+}
+
 export function setupFilePreview(container, type, displayPath, originalPath, fileInput, modalManager, fileName = null, fileSize = null) {
     if (!container || !displayPath) return;
 

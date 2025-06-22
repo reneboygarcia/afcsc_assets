@@ -1,5 +1,5 @@
 /**
- * DumbAssets - Asset Tracking Application
+ * AFCSC Asset Management - Asset Tracking Application
  * Main JavaScript file handling application logic
  */
 
@@ -1546,10 +1546,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function setupPageTitle() {
         if (window.appConfig && window.appConfig.siteTitle) {
             if (siteTitleElem) {
-                siteTitleElem.textContent = window.appConfig.siteTitle || 'DumbAssets';
+                siteTitleElem.textContent = window.appConfig.siteTitle || 'AFCSC Asset Management';
             }
             if (pageTitleElem) {
-                pageTitleElem.textContent = window.appConfig.siteTitle || 'DumbAssets';
+                pageTitleElem.textContent = window.appConfig.siteTitle || 'AFCSC Asset Management';
             }
             siteTitleElem.addEventListener('click', () => goHome());
         }

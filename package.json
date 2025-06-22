@@ -1,5 +1,5 @@
 {
-  "name": "dumbassets",
+  "name": "afcsc_assets",
   "version": "1.0.11",
   "description": "Asset tracking application for managing assets and their components",
   "main": "server.js",
@@ -19,6 +19,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "exceljs": "^4.4.0",
     "express": "^4.18.2",
     "express-session": "^1.18.1",
     "helmet": "^8.1.0",

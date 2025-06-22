@@ -165,6 +165,10 @@ function generateMaintenanceEventsHTML(maintenanceEvents) {
 function generateAssetInfoHTML(asset) {
     return `
         <div class="info-item">
+            <div class="info-label">Property Number</div>
+            <div>${asset.propertyNumber || 'N/A'}</div>
+        </div>
+        <div class="info-item">
             <div class="info-label">Manufacturer</div>
             <div>${asset.manufacturer || 'N/A'}</div>
         </div>

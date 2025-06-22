@@ -9,14 +9,14 @@
       "pattern": "{src,public}/**/*.js",
       "check": {
         "type": "regex",
-        "value": "^/\\*\\*\\n \\* [^\\n]+\\n \\* [^\\n]+\\n \\*/\\n",
+        "value": "^/\\*\\*\\n \\* [^\\n]+\\n \\*[^\\n]+\\n \\*/\\n",
         "message": "File must start with a header comment block explaining its purpose"
       }
     }
   }
 }
 
-# DumbAssets Architecture & Conventions
+# AFCSC Asset Management Architecture & Conventions
 
 ## Project Philosophy
 - Keep code simple, smart, and follow best practices

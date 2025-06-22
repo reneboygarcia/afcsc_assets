@@ -1,5 +1,5 @@
 /**
- * Apprise Notification Service for DumbAssets
+ * Apprise Notification Service for AFCSC Asset Management
  * Encapsulates Apprise CLI integration for sending notifications about asset events.
  * Handles message formatting, CLI invocation, and error logging.
  */
