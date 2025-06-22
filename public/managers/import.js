@@ -368,6 +368,7 @@ export class ImportManager {
             'Manufacturer',
             'Model',
             'Serial',
+            'Property Number',
             'Purchase Date',
             'Purchase Price',
             'Notes',
@@ -388,6 +389,7 @@ export class ImportManager {
             if (lower === 'url') return 'https://example.com';
             if (lower === 'tags') return '"tag1,tag2,tag3"'; // CSV string for tags
             if (lower === 'purchase price') return '123.45';
+            if (lower === 'property number') return 'CC-070-0XX';
             if (lower === 'quantity') return '1'; // Default quantity
             if (lower === 'lifetime') return 'false'; // Boolean value for lifetime warranty
             return `Test ${h}`;
